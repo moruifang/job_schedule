@@ -1,0 +1,20 @@
+{
+    "1" : {
+        "output" : "job1.output",
+        "tasks" : {
+            "Task1" : {"input" : "file1", "flds":"2,3"},
+            "Task2" : {"input" : "file2"},
+            "Task3" : {"upstreams" : ["Task2"], "flds":"2", "min":5, "max":10},
+            "Task4" : {"upstreams" : ["Task1", "Task3"]}
+            }
+        },
+    "2" : {
+        "output" : "job2.output",
+        "tasks" : {
+            "Task5" : {"input" : "file1", "flds":"2,3"},
+            "Task2" : {"input" : "file2"},
+            "Task3" : {"upstreams" : ["Task2"], "flds":"2", "min":10},
+            "Task4" : {"upstreams" : ["Task5", "Task3"]}
+            }
+    }
+}
